@@ -4,3 +4,13 @@
 
   <input type="text" id="idro" [(ngModel)]="id" placeholder="input mirror" readonly disabled />
 </div>
+
+<div>
+  <label for="pokemonSelect">Pick a pokemon</label>
+
+  <select id="pokemonSelect" name="pokemonSelect" [(ngModel)]="selectedPokemon">
+    <option *ngFor="let pokemon of pokemons" [value]="pokemon.id">{{ pokemon.name }}</option>
+  </select>
+
+  <p *ngIf="selectedPokemon">Selected Pokemon ID: {{ selectedPokemon }}</p>
+</div>
