@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pokemon } from '../pokemon';
 import { MatButtonModule } from '@angular/material/button';
@@ -15,13 +15,21 @@ import { PokeApiService } from '../poke-api-service';
   imports: [MatButtonModule, FormsModule, CommonModule, FilterPokemonPipePipe, MatFormFieldModule, MatInputModule, MatIconModule],
   templateUrl: './my-component.html',
   styleUrl: './my-component.css',
+  providers: [PokeApiService]
 })
-export class MyComponent {
-  private heroService = inject(PokeApiService);
+export class MyComponent implements OnInit {
   id: string = '';
-  pokemons: Pokemon[] = [new Pokemon(1, 'Pikachu'), new Pokemon(2, 'Charizard'), new Pokemon(3, 'Mewtwo'), new Pokemon(4, 'Mew'), new Pokemon(5, 'Blastoise')];
+  pokemons: Pokemon[] = [];
   filter: string = '';
   selectedPokemon: number | null = null;
+
+  private pokeApiService = inject(PokeApiService);
+
+  ngOnInit() {
+    this.pokeApiService.getPokemons().subscribe(pokemons => {
+      this.pokemons = pokemons;
+    });
+  }
 
   getSelectedPokemon(): Pokemon | undefined {
     return this.selectedPokemon ? this.pokemons.find(p => p.id === Number(this.selectedPokemon)) : undefined;
