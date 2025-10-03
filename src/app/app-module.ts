@@ -9,14 +9,13 @@ import { FilterPokemonPipePipe } from './filter-pokemon--pipe-pipe';
 
 @NgModule({
   declarations: [
-    App,
-    MyComponent,
-    FilterPokemonPipePipe
+    App
   ],
   imports: [
     FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MyComponent
   ],
   providers: [
     provideBrowserGlobalErrorListeners()

@@ -3,7 +3,7 @@ import { Pokemon } from './pokemon';
 
 @Pipe({
   name: 'filterPokemonPipe',
-  standalone: false
+  standalone: true
 })
 export class FilterPokemonPipePipe implements PipeTransform {
 

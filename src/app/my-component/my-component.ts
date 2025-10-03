@@ -1,9 +1,17 @@
 import { Component } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { Pokemon } from '../pokemon';
+import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { FilterPokemonPipePipe } from '../filter-pokemon--pipe-pipe';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @Component({
   selector: 'app-my-component',
-  standalone: false,
+  standalone: true,
+  imports: [MatButtonModule, FormsModule, CommonModule, FilterPokemonPipePipe, MatFormFieldModule, MatInputModule, MatIconModule],
   templateUrl: './my-component.html',
   styleUrl: './my-component.css',
 })

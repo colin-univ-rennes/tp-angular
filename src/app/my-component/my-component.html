@@ -1,8 +1,17 @@
 <div>
-  <label for="id">Name:</label>
-  <input type="text" id="id" [(ngModel)]="id" placeholder="Enter the desired id" />
+  <mat-form-field class="example-form-field">
+    <mat-label>Name</mat-label>
+    <input matInput type="text" [(ngModel)]="id" />
+    @if (id) {
+    <button matSuffix matIconButton aria-label="Clear" (click)="id=''">
+      <mat-icon>close</mat-icon>
+    </button>
+    }
+  </mat-form-field>
 
-  <input type="text" id="idro" [(ngModel)]="id" placeholder="input mirror" readonly disabled />
+  <mat-form-field class="example-form-field">
+    <input matInput type="text" [(ngModel)]="id" disabled />
+  </mat-form-field>
 </div>
 
 <div>
@@ -20,5 +29,5 @@
 
   <p *ngIf="selectedPokemon">Selected Pokemon ID: {{ selectedPokemon }}</p>
 
-  <button *ngIf="selectedPokemon" (click)="validateChoice()">GO!</button>
+  <button mat-raised-button *ngIf="selectedPokemon" (click)="validateChoice()">GO!</button>
 </div>
