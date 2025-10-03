@@ -7,13 +7,13 @@ import { Pokemon } from './pokemon';
 })
 export class FilterPokemonPipePipe implements PipeTransform {
 
-  transform(pokes: Pokemon[], property?: keyof Pokemon, searchString?: string): Pokemon[] {
+  transform(pokes: Pokemon[], searchString?: string): Pokemon[] {
     if (typeof searchString == 'undefined') {
       return pokes;
     }
-    else if (typeof pokes !== 'undefined' && typeof property !== 'undefined') {
+    else if (typeof pokes !== 'undefined') {
       return pokes.filter((poke) => {
-        return poke[property].toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
+        return poke.name.toLowerCase().indexOf(searchString.toLowerCase()) !== -1;
       });
     } else {
       return [];

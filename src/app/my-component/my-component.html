@@ -9,7 +9,7 @@
   <label for="pokemonSelect">Pick a pokemon</label>
 
   <select id="pokemonSelect" name="pokemonSelect" [(ngModel)]="selectedPokemon">
-    <option *ngFor="let pokemon of pokemons | filterPokemonPipe:'name':filter" [value]="pokemon.id">
+    <option *ngFor="let pokemon of pokemons | filterPokemonPipe:filter" [value]="pokemon.id">
       {{ pokemon.name }}
     </option>
   </select>
@@ -19,4 +19,6 @@
   <label for="filter"> Filter the list of pokemons </label>
 
   <p *ngIf="selectedPokemon">Selected Pokemon ID: {{ selectedPokemon }}</p>
+
+  <button *ngIf="selectedPokemon" (click)="validateChoice()">GO!</button>
 </div>
