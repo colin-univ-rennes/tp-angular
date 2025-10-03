@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Pokemon } from '../pokemon';
 import { MatButtonModule } from '@angular/material/button';
@@ -7,6 +7,7 @@ import { FilterPokemonPipePipe } from '../filter-pokemon--pipe-pipe';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { PokeApiService } from '../poke-api-service';
 
 @Component({
   selector: 'app-my-component',
@@ -16,6 +17,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
   styleUrl: './my-component.css',
 })
 export class MyComponent {
+  private heroService = inject(PokeApiService);
   id: string = '';
   pokemons: Pokemon[] = [new Pokemon(1, 'Pikachu'), new Pokemon(2, 'Charizard'), new Pokemon(3, 'Mewtwo'), new Pokemon(4, 'Mew'), new Pokemon(5, 'Blastoise')];
   filter: string = '';

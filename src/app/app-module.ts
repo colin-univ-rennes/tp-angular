@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
 import { MyComponent } from './my-component/my-component';
 import { FormsModule } from '@angular/forms';
-import { FilterPokemonPipePipe } from './filter-pokemon--pipe-pipe';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { FilterPokemonPipePipe } from './filter-pokemon--pipe-pipe';
     MyComponent
   ],
   providers: [
-    provideBrowserGlobalErrorListeners()
+    provideBrowserGlobalErrorListeners(),
+    provideHttpClient(),
   ],
   bootstrap: [App]
 })
