@@ -5,7 +5,7 @@ import { Pokemon } from '../pokemon';
   selector: 'app-my-component',
   standalone: false,
   templateUrl: './my-component.html',
-  styleUrl: './my-component.css'
+  styleUrl: './my-component.css',
 })
 export class MyComponent {
   id: string = '';
