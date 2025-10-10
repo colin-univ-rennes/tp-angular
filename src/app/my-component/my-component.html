@@ -31,3 +31,5 @@
 
   <button mat-raised-button *ngIf="selectedPokemon" (click)="validateChoice()">GO!</button>
 </div>
+
+<app-aff-pokemon *ngIf="selectedPokemon" [id]="selectedPokemon"></app-aff-pokemon>
