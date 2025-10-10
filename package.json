@@ -8,6 +8,10 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
+  "packageManager": "pnpm@10.18.1",
+  "engines": {
+    "node": ">=22.19.0"
+  },
   "prettier": {
     "printWidth": 100,
     "singleQuote": true,
