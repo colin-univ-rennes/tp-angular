@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Pokemon } from './pokemon';
+import { PokeListItem } from './poke-api-service';
 
 @Pipe({
   name: 'filterPokemonPipe',
@@ -7,7 +7,7 @@ import { Pokemon } from './pokemon';
 })
 export class FilterPokemonPipePipe implements PipeTransform {
 
-  transform(pokes: Pokemon[], searchString?: string): Pokemon[] {
+  transform(pokes: PokeListItem[], searchString?: string): PokeListItem[] {
     if (typeof searchString == 'undefined') {
       return pokes;
     }
