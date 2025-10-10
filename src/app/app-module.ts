@@ -6,6 +6,7 @@ import { App } from './app';
 import { MyComponent } from './my-component/my-component';
 import { FormsModule } from '@angular/forms';
 import { provideHttpClient } from '@angular/common/http';
+import { PokemonCommunicationService } from './pokemon-communication.service';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { provideHttpClient } from '@angular/common/http';
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideHttpClient(),
+    PokemonCommunicationService,
   ],
   bootstrap: [App]
 })

@@ -1,9 +1,9 @@
 <div>
   <mat-form-field class="example-form-field">
     <mat-label>Name</mat-label>
-    <input matInput type="text" [(ngModel)]="id" />
+    <input matInput type="text" [(ngModel)]="id" (input)="searchPokemon()" />
     @if (id) {
-    <button matSuffix matIconButton aria-label="Clear" (click)="id=''">
+    <button matSuffix matIconButton aria-label="Clear" (click)="id=''; selectedPokemon=null">
       <mat-icon>close</mat-icon>
     </button>
     }
